@@ -1,23 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+const App = () => {
+  const surpriseOptions = [
+      'A blue crocodile who is wearing mountain bike helmet and eating turkey',
+      'Dwight Shrute from the Office drinking beets juice and wearing black pants',
+      'Elon Musk driving Tesla popping cigar on Mars'
+  ]
 
-function App() {
+    const getImages = async () => {
+      try{
+          const options = {
+              method: "POST",
+              body: JSON.stringify({
+                  message: "BLUGH"
+              }),
+              headers: {
+                  "Content-type": "application/json"
+              }
+          }
+          const response = await fetch('http://localhost:8000/images', options)
+          const data = await response.json()
+      } catch (error) {
+          console.error(error)
+      }
+    }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
+    <div className="app">
+      <section className="search-section">
+        <p>Start with a detailed description
+          <span className="surprise">Surprise me</span>
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <div className="input-container">
+          <input
+              placeholder="A cat with a tortoise-shell coat flying to the stars
+              with her wings in black..."
+          />
+          <button onClick={getImages}>Generate</button>
+        </div>
+      </section>
+      <section className="image-section"></section>
     </div>
   );
 }
