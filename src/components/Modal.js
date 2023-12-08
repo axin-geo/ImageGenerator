@@ -12,7 +12,7 @@ const Modal = ({setModalOpen, setSelectedImage, selectedImage, generateVariation
     }
 
     const checkSize =() =>{
-        if (ref.current.width === 256 && ref.current.height == 256){
+        if (ref.current.width === 256 && ref.current.height === 256){
             generateVariations()
         } else {
             setError("Error: Choose 256 * 256 image.")

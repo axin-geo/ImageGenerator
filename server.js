@@ -48,7 +48,6 @@ app.post("/upload", (req, res) =>{
      } else if (err){
          return res.status(500).json(err)
      }
-     console.log(req.file.path)
      filePath = req.file.path
  })
 })
@@ -61,8 +60,8 @@ app.post('/variations', async(req, res) => {
                 n:3,
                 size: "1024x1024",
             });
-
-            res.send(response.data.data)
+            console.log(response.data)
+            res.send(response.data)
 
     } catch (error){
         console.error(error)
