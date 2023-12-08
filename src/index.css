@@ -27,11 +27,12 @@ p {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  height:250px;
 }
 
 .surprise {
   background-color: darkkhaki;
-  color: cornsilk;
+  color: #fafafc;
   border-radius: 5px;
   font-weight: 700;
   padding: 4px 12px;
@@ -72,4 +73,69 @@ p {
 
 .input-container button:active {
   background-color: aquamarine;
+}
+
+.image-section{
+  width: 100%;
+  display: flex;
+  flex-wrap : wrap;
+  align-items: stretch;
+  justify-content: space-between;
+}
+
+.image-section img{
+  margin: 1px;
+  min-width: 250px;
+  max-width: 33%;
+  flex-grow: 1;
+}
+
+@media (max-width: 556px){
+  .image-section img{
+    max-width: 100%;
+  }
+}
+
+.extra-info{
+  text-align: center;
+}
+
+.overlay{
+  position:absolute;
+  top: 0;
+  left: 0;
+  width:100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.15);
+  overflow: hidden;
+  dislay: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.modal{
+  position: relative;
+  z-index: 100;
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal button{
+  width: 100%;
+  padding: 20px;
+  border: none;
+}
+
+.modal button:active{
+  background-color: #fafafc;
+}
+
+.img-container{
+  height: 256px;
+  width: 256px;
+  overflow: hidden;
 }
